@@ -1,0 +1,48 @@
+---
+layout: blank
+body_class: home-intro
+---
+
+<section class="intro">
+  {% include navbar.html %}
+
+  <div class="intro-in">
+    <img class="into-title" src="https://lh3.googleusercontent.com/LZ52MTvpOU1OF3KcqdRg1Szuw-bULlEgTY4xo0GEKygFTy5vDkMIfeBNOIy3VNNuPWc=w300-rw"/>
+    <h1 class="intro-title">verbis</h1>
+    <h2 class="intro-subtitle">Improve your English vocabulary with Verbis.</h2>
+<script>
+var googleUser = {};
+var startApp = function() {
+  gapi.load('auth2', function(){
+    auth2 = gapi.auth2.init({
+      client_id: '884193976507-ige922ag0kjqau32bte5gf3hqrbq7ssa.apps.googleusercontent.com',
+      cookiepolicy: 'single_host_origin',
+    });
+    attachSignin(document.getElementById('my-signin2'));
+  });
+};
+
+function attachSignin(element) {
+  console.log(element.id);
+  auth2.attachClickHandler(element, {
+        'scope': 'profile email',
+        'app_package_name':'com.blackshift.verbis'
+      },
+      function(googleUser) {
+        document.getElementById('name').innerText = "Verbis will be shortly installed on your device."
+      }, function(error) {
+        alert(JSON.stringify(error, undefined, 2));
+      });
+}
+</script>
+<div id="name"></div>
+<br/>
+<script>startApp();</script>
+    <nav class="intro-actions">
+      <a class="button button-ghost" id="my-signin2" role="button">Download</a>
+
+    </nav>
+
+  </div>
+
+</section>
